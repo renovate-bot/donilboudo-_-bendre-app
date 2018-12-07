@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding (ionScroll)="scrollHandler($event)">
+  <ion-grid>
+    <ion-row>
+      <ion-col (click)="goBack()">
+        <ion-icon name="arrow-round-back"></ion-icon>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-img src="{{ post && post.mediaLink ? post.mediaLink : '../assets/img/logo.jpg' }}"></ion-img>
+    </ion-row>
+    <ion-row>
+      <ion-col class="post-categories">
+        {{ post ? post.categoriesString : '' }}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="post-title">
+        {{ post ? post.title.rendered : '' }}
+      </ion-col>
+    </ion-row>
+    <div class="line-separator"></div>
+    <ion-row>
+      <ion-col>
+        <div [innerHTML]="post ? post.content.rendered : ''"></div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

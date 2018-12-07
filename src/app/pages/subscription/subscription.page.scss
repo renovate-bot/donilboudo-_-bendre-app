@@ -1,0 +1,43 @@
+.header-logo {
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.header-logo-content {
+    width: 40%;
+    justify-content: center;
+}
+
+.title {
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.subscription-type {
+    width: 100%;
+}
+
+.account-info {
+    width: 100%;
+}
+
+.account-info-title {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    // padding-left: 15px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.line-separator{
+    height:1px;
+    background:#717171;
+    border-bottom:1px solid #313030;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 85px;
+}

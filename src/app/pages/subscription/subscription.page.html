@@ -1,0 +1,114 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Abonnement</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-row class="header-logo">
+    <ion-img src='../assets/img/logo.jpg' class="header-logo-content"></ion-img>
+  </ion-row>
+
+  <ion-row class="title">Abonnement</ion-row>
+
+  <ion-row>
+    <ion-item class="subscription-type">
+      <ion-label>Type d'abonnement</ion-label>
+      <ion-select [interfaceOptions]="customActionSheetOptions" interface="action-sheet" placeholder="Choisissez un"
+        [(ngModel)]="selectedSubscription">
+        <ion-select-option value="">Sélectionnez</ion-select-option>
+        <ion-select-option value="follower-ordinaire">Follower ordinaire - Gratuit</ion-select-option>
+        <ion-select-option value="lecteur-abonne">Lecteur abonné - $10</ion-select-option>
+        <ion-select-option value="contributeur">Le contributeur - $20</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-row>
+
+  <ion-row *ngIf="selectedSubscription">
+    <ion-label style="margin-top:20px;">Vous avez choisi le niveau d'adhésion <strong>{{ selectedSubscription }}</strong>.</ion-label>
+  </ion-row>
+
+  <ion-row *ngIf="selectedSubscription">
+    <ion-label class="account-info-title">Informations du compte</ion-label>
+    <ion-list class="account-info">
+      <ion-item>
+        <ion-label stacked>Nom d'utilisateur</ion-label>
+        <ion-input type="text" value="" requiered></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Mot de passe</ion-label>
+        <ion-input type="password" requiered></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Confirmez le mot de passe</ion-label>
+        <ion-input type="password"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Adresse email</ion-label>
+        <ion-input type="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Confirmez l'email</ion-label>
+        <ion-input type="email"></ion-input>
+      </ion-item>
+    </ion-list>
+  </ion-row>
+
+  <ion-row *ngIf="selectedSubscription && (selectedSubscription === 'lecteur-abonne' || selectedSubscription === 'contributeur')">
+    <ion-label class="account-info-title">Adresse de facturation</ion-label>
+    <ion-list class="account-info">
+      <ion-item>
+        <ion-label stacked>Prénom</ion-label>
+        <ion-input type="text" value=""></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Nom</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Adresse 1</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Adresse 2</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Ville</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>État</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Pays</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Téléphone</ion-label>
+        <ion-input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"></ion-input>
+      </ion-item>
+    </ion-list>
+  </ion-row>
+
+  <ion-row *ngIf="selectedSubscription" style="margin-top:20px;">
+    <ion-button color="danger" (click)="onCancel()">Annuler</ion-button>
+    <ion-button (click)="onSubmit()">Soumettre</ion-button>
+  </ion-row>
+
+</ion-content>
